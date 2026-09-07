@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sallar Groups · Business Profile</title>
+  <!-- Tailwind via CDN + a touch of custom smoothness -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* soft scroll & subtle transitions */
+    html { scroll-behavior: smooth; }
+    .card-hover { transition: all 0.25s ease-in-out; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15); }
+    .gallery-img { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .gallery-img:hover { transform: scale(1.02); box-shadow: 0 20px 25px -8px rgba(0,0,0,0.25); }
+    .bg-soft { background-color: #f8fafc; }
+    .border-soft { border-color: #e9edf2; }
+    .text-accent { color: #1e3a5f; }
+    .bg-accent { background-color: #1e3a5f; }
+    .bg-accent-light { background-color: #2b4b72; }
+  </style>
+</head>
+<body class="bg-soft font-sans antialiased text-gray-700">
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="bg-white shadow-sm border-b border-soft sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4 md:py-5">
+        <!-- brand -->
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-building text-2xl text-accent"></i>
+          <span class="text-xl font-bold tracking-tight text-accent">Sallar<span class="font-light">Groups</span></span>
+          <span class="hidden sm:inline-block text-xs font-medium bg-accent/10 text-accent px-2 py-0.5 rounded-full ml-1">since 2006</span>
+        </div>
+        <!-- nav links (desktop) -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="#home" class="text-accent hover:text-blue-700 transition">Home</a>
+          <a href="#about" class="text-gray-600 hover:text-accent transition">About</a>
+          <a href="#gallery" class="text-gray-600 hover:text-accent transition">Gallery</a>
+          <a href="#contact" class="text-gray-600 hover:text-accent transition">Contact</a>
+          <!-- NEW: Link to analytics page -->
+          <a href="analytics.html" class="text-gray-600 hover:text-accent transition flex items-center gap-1">
+            <i class="fas fa-chart-line text-xs"></i> Analytics
+          </a>
+        </nav>
+        <!-- mobile menu toggle (simple) -->
+        <div class="md:hidden">
+          <button id="menuToggle" class="text-gray-600 hover:text-accent focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        <!-- CTA (desktop) -->
+        <div class="hidden md:block">
+          <a href="#contact" class="bg-accent hover:bg-accent-light text-white px-5 py-2 rounded-full text-sm font-medium shadow-sm transition">Get in touch</a>
+        </div>
+      </div>
+      <!-- mobile nav (collapsible) -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4 border-t border-soft pt-3 space-y-2 text-sm font-medium">
+        <a href="#home" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-accent">Home</a>
+        <a href="#about" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">About</a>
+        <a href="#gallery" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Gallery</a>
+        <a href="#contact" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Contact</a>
+        <!-- NEW: Mobile link to analytics -->
+        <a href="analytics.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700 flex items-center gap-2">
+          <i class="fas fa-chart-line"></i> Analytics
+        </a>
+        <a href="#contact" class="block mt-2 bg-accent text-white text-center px-4 py-2 rounded-full">Contact us</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home" class="scroll-mt-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Trusted partner</span>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-accent mt-4">
+            Building <span class="text-blue-600">tomorrow</span>, <br>together.
+          </h1>
+          <p class="text-gray-600 text-lg mt-4 leading-relaxed max-w-md">
+            Sallar Groups of Company delivers excellence across construction, real estate, and infrastructure. 
+            Over 18 years of shaping skylines and communities.
+          </p>
+          <div class="flex flex-wrap gap-4 mt-8">
+            <a href="#about" class="bg-accent hover:bg-accent-light text-white px-7 py-3 rounded-full font-medium shadow transition">Explore <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+            <a href="#contact" class="border border-accent/30 text-accent hover:bg-accent/5 px-7 py-3 rounded-full font-medium transition">Contact</a>
+            <!-- NEW: Analytics CTA -->
+            <a href="analytics.html" class="border border-accent/30 text-accent hover:bg-accent/5 px-7 py-3 rounded-full font-medium transition flex items-center gap-2">
+              <i class="fas fa-chart-line"></i> View Analytics
+            </a>
+          </div>
+          <!-- stats -->
+          <div class="grid grid-cols-3 gap-3 mt-10 pt-6 border-t border-soft/70">
+            <div><span class="block text-2xl font-bold text-accent">120+</span><span class="text-xs text-gray-500">Projects</span></div>
+            <div><span class="block text-2xl font-bold text-accent">18</span><span class="text-xs text-gray-500">Years</span></div>
+            <div><span class="block text-2xl font-bold text-accent">94%</span><span class="text-xs text-gray-500">Satisfaction</span></div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-xl bg-gray-200">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop&crop=center" alt="Sallar company building" class="object-cover w-full h-full" loading="lazy">
+          </div>
+          <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg border border-soft hidden sm:block">
+            <i class="fas fa-hard-hat text-accent text-2xl"></i>
+            <span class="block text-xs font-medium mt-1">Safety first</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT US ===== -->
+    <section id="about" class="scroll-mt-20 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-soft">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="text-accent/70 text-sm font-semibold uppercase tracking-widest">About us</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-accent mt-2">Driven by <span class="text-blue-600">excellence</span></h2>
+        <div class="w-20 h-1 bg-accent/30 mx-auto mt-4 rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+        <div>
+          <p class="text-gray-600 leading-relaxed">
+            <span class="font-semibold text-accent">Sallar Groups</span> is a diversified conglomerate with a strong foothold in 
+            construction, property development, and infrastructure. We combine innovation with integrity, 
+            delivering projects that stand the test of time.
+          </p>
+          <ul class="mt-6 space-y-3 text-sm">
+            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent/80"></i> ISO 9001:2021 certified</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent/80"></i> 50+ industry awards</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent/80"></i> Sustainable & green building practices</li>
+          </ul>
+          <div class="mt-8 flex gap-4 flex-wrap">
+            <div class="bg-soft px-5 py-3 rounded-xl"><span class="block font-bold text-accent">2006</span><span class="text-xs text-gray-500">founded</span></div>
+            <div class="bg-soft px-5 py-3 rounded-xl"><span class="block font-bold text-accent">1,200+</span><span class="text-xs text-gray-500">employees</span></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-soft rounded-xl p-4 text-center card-hover">
+            <i class="fas fa-helmet-safety text-3xl text-accent/70"></i>
+            <p class="text-xs font-medium mt-2">Safety culture</p>
+          </div>
+          <div class="bg-soft rounded-xl p-4 text-center card-hover">
+            <i class="fas fa-bezier-curve text-3xl text-accent/70"></i>
+            <p class="text-xs font-medium mt-2">Modern design</p>
+          </div>
+          <div class="bg-soft rounded-xl p-4 text-center card-hover">
+            <i class="fas fa-handshake text-3xl text-accent/70"></i>
+            <p class="text-xs font-medium mt-2">Partnership</p>
+          </div>
+          <div class="bg-soft rounded-xl p-4 text-center card-hover">
+            <i class="fas fa-globe-asia text-3xl text-accent/70"></i>
+            <p class="text-xs font-medium mt-2">Global reach</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="scroll-mt-20">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-accent/70 text-sm font-semibold uppercase tracking-widest">Gallery</span>
+          <h2 class="text-3xl font-bold text-accent mt-1">Our <span class="text-blue-600">works</span></h2>
+        </div>
+        <span class="text-sm text-gray-400 hidden sm:inline"><i class="far fa-images mr-1"></i> 6 projects</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- gallery item 1 -->
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-soft bg-white gallery-img">
+          <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=600&h=400&fit=crop&crop=center" alt="modern building" class="w-full h-56 object-cover" loading="lazy">
+          <div class="p-4"><span class="text-sm font-medium text-accent">Sky Tower</span><span class="block text-xs text-gray-400">Commercial complex</span></div>
+        </div>
+        <!-- gallery item 2 -->
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-soft bg-white gallery-img">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop&crop=center" alt="residential project" class="w-full h-56 object-cover" loading="lazy">
+          <div class="p-4"><span class="text-sm font-medium text-accent">Green Residency</span><span class="block text-xs text-gray-400">Eco‑friendly homes</span></div>
+        </div>
+        <!-- gallery item 3 -->
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-soft bg-white gallery-img">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&crop=center" alt="infrastructure" class="w-full h-56 object-cover" loading="lazy">
+          <div class="p-4"><span class="text-sm font-medium text-accent">Metro Bridge</span><span class="block text-xs text-gray-400">Infrastructure</span></div>
+        </div>
+        <!-- gallery item 4 -->
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-soft bg-white gallery-img">
+          <img src="https://images.unsplash.com/photo-1575275662348-50fd0e9c8ca9?w=600&h=400&fit=crop&crop=center" alt="office interior" class="w-full h-56 object-cover" loading="lazy">
+          <div class="p-4"><span class="text-sm font-medium text-accent">Tech Hub</span><span class="block text-xs text-gray-400">Office interiors</span></div>
+        </div>
+        <!-- gallery item 5 -->
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-soft bg-white gallery-img">
+          <img src="https://images.unsplash.com/photo-1511818966892-d7b671e672a2?w=600&h=400&fit=crop&crop=center" alt="landscape" class="w-full h-56 object-cover" loading="lazy">
+          <div class="p-4"><span class="text-sm font-medium text-accent">Riverside Plaza</span><span class="block text-xs text-gray-400">Mixed use</span></div>
+        </div>
+        <!-- gallery item 6 -->
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-soft bg-white gallery-img">
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop&crop=center" alt="construction site" class="w-full h-56 object-cover" loading="lazy">
+          <div class="p-4"><span class="text-sm font-medium text-accent">Harbor View</span><span class="block text-xs text-gray-400">Under construction</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="scroll-mt-20 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-soft">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <span class="text-accent/70 text-sm font-semibold uppercase tracking-widest">Contact</span>
+          <h2 class="text-3xl font-bold text-accent mt-1">Let's talk</h2>
+          <p class="text-gray-500 mt-4 max-w-sm">We'd love to hear from you. Reach out for partnerships, inquiries, or career opportunities.</p>
+          <div class="mt-8 space-y-5">
+            <div class="flex items-start gap-4"><i class="fas fa-map-pin text-accent/70 text-xl w-6 mt-0.5"></i><div><span class="font-medium">Headquarters</span><p class="text-sm text-gray-500">42 Sallar Avenue, Business Bay, Dubai</p></div></div>
+            <div class="flex items-start gap-4"><i class="fas fa-phone-alt text-accent/70 text-xl w-6 mt-0.5"></i><div><span class="font-medium">Phone</span><p class="text-sm text-gray-500">+971 4 555 7890</p></div></div>
+            <div class="flex items-start gap-4"><i class="fas fa-envelope text-accent/70 text-xl w-6 mt-0.5"></i><div><span class="font-medium">Email</span><p class="text-sm text-gray-500">info@sallargroups.com</p></div></div>
+          </div>
+          <!-- social -->
+          <div class="flex gap-4 mt-8 text-accent/70">
+            <a href="#" class="hover:text-accent text-xl"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="hover:text-accent text-xl"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-accent text-xl"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-accent text-xl"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <!-- form -->
+        <div class="bg-soft p-6 rounded-2xl">
+          <form class="space-y-4">
+            <div><label class="block text-sm font-medium text-gray-600">Full name</label><input type="text" class="w-full mt-1 px-4 py-3 bg-white border border-soft rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition" placeholder="John Doe"></div>
+            <div><label class="block text-sm font-medium text-gray-600">Email address</label><input type="email" class="w-full mt-1 px-4 py-3 bg-white border border-soft rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition" placeholder="john@example.com"></div>
+            <div><label class="block text-sm font-medium text-gray-600">Message</label><textarea rows="3" class="w-full mt-1 px-4 py-3 bg-white border border-soft rounded-xl focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition" placeholder="Tell us about your project..."></textarea></div>
+            <button type="submit" class="w-full bg-accent hover:bg-accent-light text-white font-medium py-3.5 rounded-xl transition shadow-sm">Send message <i class="fas fa-paper-plane ml-2 text-sm"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white border-t border-soft mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-copyright text-xs"></i><span>2026 Sallar Groups of Company. All rights reserved.</span>
+      </div>
+      <div class="flex gap-6 mt-3 md:mt-0">
+        <a href="#" class="hover:text-accent transition">Privacy</a>
+        <a href="#" class="hover:text-accent transition">Terms</a>
+        <!-- NEW: Footer link to analytics -->
+        <a href="analytics.html" class="hover:text-accent transition flex items-center gap-1">
+          <i class="fas fa-chart-line text-xs"></i> Analytics
+        </a>
+        <a href="#home" class="hover:text-accent transition"><i class="fas fa-chevron-up"></i> Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- mobile menu toggle script -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+        // close on link click (optional)
+        menu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
