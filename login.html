@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sallar Groups · Login</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .bg-soft { background-color: #f8fafc; }
+    .border-soft { border-color: #e9edf2; }
+    .text-accent { color: #1e3a5f; }
+    .bg-accent { background-color: #1e3a5f; }
+    .bg-accent-light { background-color: #2b4b72; }
+    .login-card {
+      transition: all 0.3s ease;
+    }
+    .login-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+    .input-focus:focus {
+      box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.15);
+      border-color: #1e3a5f;
+    }
+  </style>
+</head>
+<body class="bg-soft font-sans antialiased text-gray-700 min-h-screen flex flex-col">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white shadow-sm border-b border-soft">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4 md:py-5">
+        <!-- brand -->
+        <a href="index.html" class="flex items-center space-x-2 hover:opacity-80 transition">
+          <i class="fas fa-building text-2xl text-accent"></i>
+          <span class="text-xl font-bold tracking-tight text-accent">Sallar<span class="font-light">Groups</span></span>
+        </a>
+        <!-- nav links -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="index.html" class="text-gray-600 hover:text-accent transition">Home</a>
+          <a href="index.html#about" class="text-gray-600 hover:text-accent transition">About</a>
+          <a href="index.html#gallery" class="text-gray-600 hover:text-accent transition">Gallery</a>
+          <a href="index.html#contact" class="text-gray-600 hover:text-accent transition">Contact</a>
+          <a href="analytics.html" class="text-gray-600 hover:text-accent transition flex items-center gap-1">
+            <i class="fas fa-chart-line text-xs"></i> Analytics
+          </a>
+          <a href="#" class="text-accent font-semibold border-b-2 border-accent pb-0.5 flex items-center gap-1">
+            <i class="fas fa-sign-in-alt text-xs"></i> Login
+          </a>
+        </nav>
+        <!-- mobile toggle -->
+        <div class="md:hidden">
+          <button id="menuToggle" class="text-gray-600 hover:text-accent focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        <!-- CTA -->
+        <div class="hidden md:block">
+          <a href="index.html#contact" class="bg-accent hover:bg-accent-light text-white px-5 py-2 rounded-full text-sm font-medium shadow-sm transition">Get in touch</a>
+        </div>
+      </div>
+      <!-- mobile nav -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4 border-t border-soft pt-3 space-y-2 text-sm font-medium">
+        <a href="index.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Home</a>
+        <a href="index.html#about" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">About</a>
+        <a href="index.html#gallery" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Gallery</a>
+        <a href="index.html#contact" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Contact</a>
+        <a href="analytics.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700 flex items-center gap-2">
+          <i class="fas fa-chart-line"></i> Analytics
+        </a>
+        <a href="#" class="block px-2 py-1.5 rounded bg-accent/10 text-accent font-medium flex items-center gap-2">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <a href="index.html#contact" class="block mt-2 bg-accent text-white text-center px-4 py-2 rounded-full">Contact us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="flex-grow flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+      <!-- Login Card -->
+      <div class="bg-white rounded-3xl shadow-xl border border-soft overflow-hidden login-card">
+        <!-- decorative header -->
+        <div class="bg-accent px-8 py-6 text-white">
+          <div class="flex items-center gap-3">
+            <i class="fas fa-user-circle text-3xl"></i>
+            <div>
+              <h2 class="text-2xl font-bold">Welcome Back</h2>
+              <p class="text-sm text-blue-200/80">Sign in to your account</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- login form -->
+        <div class="px-8 py-8">
+          <!-- demo alert -->
+          <div class="mb-6 bg-blue-50 border border-blue-200 rounded-xl p-3 text-xs text-blue-700 flex items-start gap-2">
+            <i class="fas fa-info-circle mt-0.5"></i>
+            <span><strong>Demo:</strong> Use any email & password, or try <span class="font-mono bg-blue-100 px-1.5 py-0.5 rounded">admin@demo.com</span> / <span class="font-mono bg-blue-100 px-1.5 py-0.5 rounded">password123</span></span>
+          </div>
+
+          <form id="loginForm" class="space-y-5">
+            <!-- email -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                <i class="fas fa-envelope mr-2 text-accent/60"></i>Email Address
+              </label>
+              <input 
+                type="email" 
+                id="emailInput"
+                class="w-full px-4 py-3 bg-soft border border-soft rounded-xl focus:outline-none input-focus transition placeholder-gray-400"
+                placeholder="you@example.com"
+                value="admin@demo.com"
+                required
+              >
+            </div>
+
+            <!-- password -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                <i class="fas fa-lock mr-2 text-accent/60"></i>Password
+              </label>
+              <div class="relative">
+                <input 
+                  type="password" 
+                  id="passwordInput"
+                  class="w-full px-4 py-3 bg-soft border border-soft rounded-xl focus:outline-none input-focus transition placeholder-gray-400"
+                  placeholder="••••••••"
+                  value="password123"
+                  required
+                >
+                <button 
+                  type="button" 
+                  id="togglePassword"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-accent transition"
+                >
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- remember & forgot -->
+            <div class="flex items-center justify-between text-sm">
+              <label class="flex items-center gap-2 text-gray-600 cursor-pointer">
+                <input type="checkbox" class="rounded border-soft text-accent focus:ring-accent/20">
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="text-accent hover:underline font-medium">Forgot password?</a>
+            </div>
+
+            <!-- login button -->
+            <button 
+              type="submit" 
+              id="loginBtn"
+              class="w-full bg-accent hover:bg-accent-light text-white font-semibold py-3.5 rounded-xl transition shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+            >
+              <i class="fas fa-sign-in-alt"></i>
+              Sign In
+            </button>
+
+            <!-- divider -->
+            <div class="relative my-6">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-soft"></div>
+              </div>
+              <div class="relative flex justify-center text-xs">
+                <span class="px-4 bg-white text-gray-400">or continue with</span>
+              </div>
+            </div>
+
+            <!-- social buttons -->
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" class="flex items-center justify-center gap-2 px-4 py-2.5 border border-soft rounded-xl hover:bg-soft transition text-sm font-medium text-gray-700">
+                <i class="fab fa-google text-red-500"></i> Google
+              </button>
+              <button type="button" class="flex items-center justify-center gap-2 px-4 py-2.5 border border-soft rounded-xl hover:bg-soft transition text-sm font-medium text-gray-700">
+                <i class="fab fa-linkedin text-blue-600"></i> LinkedIn
+              </button>
+            </div>
+
+            <!-- sign up link -->
+            <p class="text-center text-sm text-gray-500 mt-4">
+              Don't have an account? 
+              <a href="#" class="text-accent font-semibold hover:underline">Sign up</a>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- back to home -->
+      <div class="mt-6 text-center">
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-accent transition">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white border-t border-soft mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-copyright text-xs"></i><span>2026 Sallar Groups of Company</span>
+      </div>
+      <div class="flex gap-6 mt-3 md:mt-0">
+        <a href="#" class="hover:text-accent transition">Privacy</a>
+        <a href="#" class="hover:text-accent transition">Terms</a>
+        <a href="index.html" class="hover:text-accent transition flex items-center gap-1">
+          <i class="fas fa-home text-xs"></i> Home
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for interactivity -->
+  <script>
+    (function() {
+      // Mobile menu toggle
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+      }
+
+      // Toggle password visibility
+      const togglePassword = document.getElementById('togglePassword');
+      const passwordInput = document.getElementById('passwordInput');
+      if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', function() {
+          const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+          passwordInput.setAttribute('type', type);
+          this.querySelector('i').classList.toggle('fa-eye');
+          this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+      }
+
+      // Login form handler
+      const loginForm = document.getElementById('loginForm');
+      const loginBtn = document.getElementById('loginBtn');
+      
+      if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const email = document.getElementById('emailInput').value.trim();
+          const password = document.getElementById('passwordInput').value.trim();
+          
+          // Simple validation
+          if (!email || !password) {
+            alert('⚠️ Please fill in both email and password.');
+            return;
+          }
+          
+          // Show loading state
+          loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
+          loginBtn.disabled = true;
+          
+          // Simulate API call
+          setTimeout(() => {
+            // Demo success - redirect to analytics
+            loginBtn.innerHTML = '<i class="fas fa-check"></i> Success!';
+            loginBtn.className = 'w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3.5 rounded-xl transition shadow-md flex items-center justify-center gap-2';
+            
+            setTimeout(() => {
+              // Redirect to analytics page
+              window.location.href = 'analytics.html';
+            }, 800);
+          }, 1500);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
