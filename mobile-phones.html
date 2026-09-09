@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sallar Groups · Latest Mobile Phones & Prices PKR</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .bg-soft { background-color: #f8fafc; }
+    .border-soft { border-color: #e9edf2; }
+    .text-accent { color: #1e3a5f; }
+    .bg-accent { background-color: #1e3a5f; }
+    .bg-accent-light { background-color: #2b4b72; }
+    .phone-card {
+      transition: all 0.3s ease;
+    }
+    .phone-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+    }
+    .brand-badge {
+      transition: all 0.2s ease;
+    }
+    .brand-badge:hover {
+      transform: scale(1.05);
+    }
+    .brand-badge.active {
+      background-color: #1e3a5f;
+      color: white;
+    }
+    .price-tag {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2b4b72 100%);
+    }
+  </style>
+</head>
+<body class="bg-soft font-sans antialiased text-gray-700">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white shadow-sm border-b border-soft sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4 md:py-5">
+        <!-- brand -->
+        <a href="index.html" class="flex items-center space-x-2 hover:opacity-80 transition">
+          <i class="fas fa-building text-2xl text-accent"></i>
+          <span class="text-xl font-bold tracking-tight text-accent">Sallar<span class="font-light">Groups</span></span>
+          <span class="hidden sm:inline-block text-xs font-medium bg-accent/10 text-accent px-2 py-0.5 rounded-full ml-1">phones</span>
+        </a>
+        <!-- nav links (desktop) -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="index.html" class="text-gray-600 hover:text-accent transition">Home</a>
+          <a href="index.html#about" class="text-gray-600 hover:text-accent transition">About</a>
+          <a href="index.html#gallery" class="text-gray-600 hover:text-accent transition">Gallery</a>
+          <a href="index.html#contact" class="text-gray-600 hover:text-accent transition">Contact</a>
+          <a href="analytics.html" class="text-gray-600 hover:text-accent transition flex items-center gap-1">
+            <i class="fas fa-chart-line text-xs"></i> Analytics
+          </a>
+          <a href="login.html" class="text-gray-600 hover:text-accent transition flex items-center gap-1">
+            <i class="fas fa-sign-in-alt text-xs"></i> Login
+          </a>
+          <a href="#" class="text-accent font-semibold border-b-2 border-accent pb-0.5 flex items-center gap-1">
+            <i class="fas fa-mobile-alt text-xs"></i> Phones
+          </a>
+        </nav>
+        <!-- mobile toggle -->
+        <div class="md:hidden">
+          <button id="menuToggle" class="text-gray-600 hover:text-accent focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        <!-- CTA -->
+        <div class="hidden md:block">
+          <a href="index.html#contact" class="bg-accent hover:bg-accent-light text-white px-5 py-2 rounded-full text-sm font-medium shadow-sm transition">Get in touch</a>
+        </div>
+      </div>
+      <!-- mobile nav -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4 border-t border-soft pt-3 space-y-2 text-sm font-medium">
+        <a href="index.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Home</a>
+        <a href="index.html#about" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">About</a>
+        <a href="index.html#gallery" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Gallery</a>
+        <a href="index.html#contact" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Contact</a>
+        <a href="analytics.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700 flex items-center gap-2">
+          <i class="fas fa-chart-line"></i> Analytics
+        </a>
+        <a href="login.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700 flex items-center gap-2">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <a href="#" class="block px-2 py-1.5 rounded bg-accent/10 text-accent font-medium flex items-center gap-2">
+          <i class="fas fa-mobile-alt"></i> Phones
+        </a>
+        <a href="index.html#contact" class="block mt-2 bg-accent text-white text-center px-4 py-2 rounded-full">Contact us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- Page Header -->
+    <div class="mb-10">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <span class="text-accent/70 text-sm font-semibold uppercase tracking-widest"><i class="fas fa-mobile-alt mr-2"></i>Mobile Phones</span>
+          <h1 class="text-3xl md:text-4xl font-bold text-accent mt-1">Latest Models & <span class="text-blue-600">Prices in PKR</span></h1>
+          <p class="text-gray-500 max-w-xl mt-1 text-sm">Updated prices for Samsung, iPhone, OnePlus, Google, and more.</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs bg-white px-4 py-2 rounded-full shadow-sm border border-soft">
+          <i class="fas fa-clock text-accent/60"></i>
+          <span class="text-gray-500">Last updated: <span class="font-medium text-gray-700">Sept 2026</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Filter -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button class="brand-badge active px-4 py-2 rounded-full text-sm font-medium bg-accent text-white shadow-sm transition" data-brand="all">
+        <i class="fas fa-mobile-alt mr-1"></i> All
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="samsung">
+        <i class="fab fa-samsung mr-1"></i> Samsung
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="apple">
+        <i class="fab fa-apple mr-1"></i> iPhone
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="oneplus">
+        <i class="fas fa-bolt mr-1"></i> OnePlus
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="google">
+        <i class="fab fa-google mr-1"></i> Google
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="xiaomi">
+        <i class="fas fa-mi mr-1"></i> Xiaomi
+      </button>
+    </div>
+
+    <!-- Phone Grid -->
+    <div id="phoneGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      
+      <!-- Samsung Galaxy S24 Ultra -->
+      <div class="phone-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="samsung">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=300&fit=crop&crop=center" alt="Samsung Galaxy S24 Ultra" class="w-full h-48 object-cover">
+          <span class="absolute top-3 left-3 bg-accent text-white text-xs px-3 py-1 rounded-full font-medium">⭐ Best Seller</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs text-gray-400 font-semibold"><i class="fab fa-samsung"></i> Samsung</span>
+              <h3 class="font-bold text-accent text-lg mt-0.5">Galaxy S24 Ultra</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">In Stock</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="price-tag text-white px-3 py-1.5 rounded-lg text-sm font-bold">₨ 384,999</span>
+            <span class="text-xs text-gray-400 line-through">₨ 429,999</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1 text-xs text-gray-500">
+            <span class="bg-soft px-2 py-0.5 rounded">12GB RAM</span>
+            <span class="bg-soft px-2 py-0.5 rounded">256GB</span>
+            <span class="bg-soft px-2 py-0.5 rounded">6.8" AMOLED</span>
+          </div>
+          <button class="w-full mt-4 bg-accent hover:bg-accent-light text-white py-2 rounded-xl transition text-sm font-medium">
+            <i class="fas fa-shopping-cart mr-2"></i> View Deal
+          </button>
+        </div>
+      </div>
+
+      <!-- iPhone 16 Pro Max -->
+      <div class="phone-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="apple">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop&crop=center" alt="iPhone 16 Pro Max" class="w-full h-48 object-cover">
+          <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">🔥 New</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs text-gray-400 font-semibold"><i class="fab fa-apple"></i> Apple</span>
+              <h3 class="font-bold text-accent text-lg mt-0.5">iPhone 16 Pro Max</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">In Stock</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="price-tag text-white px-3 py-1.5 rounded-lg text-sm font-bold">₨ 449,999</span>
+            <span class="text-xs text-gray-400 line-through">₨ 499,999</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1 text-xs text-gray-500">
+            <span class="bg-soft px-2 py-0.5 rounded">8GB RAM</span>
+            <span class="bg-soft px-2 py-0.5 rounded">256GB</span>
+            <span class="bg-soft px-2 py-0.5 rounded">6.9" OLED</span>
+          </div>
+          <button class="w-full mt-4 bg-accent hover:bg-accent-light text-white py-2 rounded-xl transition text-sm font-medium">
+            <i class="fas fa-shopping-cart mr-2"></i> View Deal
+          </button>
+        </div>
+      </div>
+
+      <!-- Samsung Galaxy Z Fold 6 -->
+      <div class="phone-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="samsung">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1610945264803-c22e62d2a7f3?w=400&h=300&fit=crop&crop=center" alt="Samsung Z Fold 6" class="w-full h-48 object-cover">
+          <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-medium">📱 Foldable</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs text-gray-400 font-semibold"><i class="fab fa-samsung"></i> Samsung</span>
+              <h3 class="font-bold text-accent text-lg mt-0.5">Galaxy Z Fold 6</h3>
+            </div>
+            <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">Pre-order</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="price-tag text-white px-3 py-1.5 rounded-lg text-sm font-bold">₨ 539,999</span>
+            <span class="text-xs text-gray-400 line-through">₨ 579,999</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1 text-xs text-gray-500">
+            <span class="bg-soft px-2 py-0.5 rounded">12GB RAM</span>
+            <span class="bg-soft px-2 py-0.5 rounded">512GB</span>
+            <span class="bg-soft px-2 py-0.5 rounded">7.6" Dynamic</span>
+          </div>
+          <button class="w-full mt-4 bg-accent hover:bg-accent-light text-white py-2 rounded-xl transition text-sm font-medium">
+            <i class="fas fa-shopping-cart mr-2"></i> View Deal
+          </button>
+        </div>
+      </div>
+
+      <!-- OnePlus 12 -->
+      <div class="phone-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="oneplus">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=300&fit=crop&crop=center" alt="OnePlus 12" class="w-full h-48 object-cover">
+          <span class="absolute top-3 left-3 bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-medium">⚡ Fast</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs text-gray-400 font-semibold"><i class="fas fa-bolt"></i> OnePlus</span>
+              <h3 class="font-bold text-accent text-lg mt-0.5">OnePlus 12</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">In Stock</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="price-tag text-white px-3 py-1.5 rounded-lg text-sm font-bold">₨ 239,999</span>
+            <span class="text-xs text-gray-400 line-through">₨ 269,999</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1 text-xs text-gray-500">
+            <span class="bg-soft px-2 py-0.5 rounded">12GB RAM</span>
+            <span class="bg-soft px-2 py-0.5 rounded">256GB</span>
+            <span class="bg-soft px-2 py-0.5 rounded">6.8" AMOLED</span>
+          </div>
+          <button class="w-full mt-4 bg-accent hover:bg-accent-light text-white py-2 rounded-xl transition text-sm font-medium">
+            <i class="fas fa-shopping-cart mr-2"></i> View Deal
+          </button>
+        </div>
+      </div>
+
+      <!-- Google Pixel 9 Pro -->
+      <div class="phone-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="google">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=300&fit=crop&crop=center" alt="Google Pixel 9 Pro" class="w-full h-48 object-cover">
+          <span class="absolute top-3 left-3 bg-green-600 text-white text-xs px-3 py-1 rounded-full font-medium">🤖 AI</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs text-gray-400 font-semibold"><i class="fab fa-google"></i> Google</span>
+              <h3 class="font-bold text-accent text-lg mt-0.5">Pixel 9 Pro</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">In Stock</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="price-tag text-white px-3 py-1.5 rounded-lg text-sm font-bold">₨ 319,999</span>
+            <span class="text-xs text-gray-400 line-through">₨ 349,999</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1 text-xs text-gray-500">
+            <span class="bg-soft px-2 py-0.5 rounded">12GB RAM</span>
+            <span class="bg-soft px-2 py-0.5 rounded">256GB</span>
+            <span class="bg-soft px-2 py-0.5 rounded">6.7" OLED</span>
+          </div>
+          <button class="w-full mt-4 bg-accent hover:bg-accent-light text-white py-2 rounded-xl transition text-sm font-medium">
+            <i class="fas fa-shopping-cart mr-2"></i> View Deal
+          </button>
+        </div>
+      </div>
+
+      <!-- Xiaomi 14 Ultra -->
+      <div class="phone-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="xiaomi">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=300&fit=crop&crop=center" alt="Xiaomi 14 Ultra" class="w-full h-48 object-cover">
+          <span class="absolute top-3 left-3 bg-red-600 text-white text-xs px-3 py-1 rounded-full font-medium">📸 Camera</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs text-gray-400 font-semibold"><i class="fas fa-mi"></i> Xiaomi</span>
+              <h3 class="font-bold text-accent text-lg mt-0.5">14 Ultra</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">In Stock</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="price-tag text-white px-3 py-1.5 rounded-lg text-sm font-bold">₨ 214,999</span>
+            <span class="text-xs text-gray-400 line-through">₨ 239,999</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1 text-xs text-gray-500">
+            <span class="bg-soft px-2 py-0.5 rounded">12GB RAM</span>
+            <span class="bg-soft px-2 py-0.5 rounded">512GB</span>
+            <span class="bg-soft px-2 py-0.5 rounded">6.73" AMOLED</span>
+          </div>
+          <button class="w-full mt-4 bg-accent hover:bg-accent-light text-white py-2 rounded-xl transition text-sm font-medium">
+            <i class="fas fa-shopping-cart mr-2"></i> View Deal
+          </button>
+        </div>
+      </div>
+
+      <!-- iPhone 16 Plus -->
+      <div class="phone-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="apple">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?w=400&h=300&fit=crop&crop=center" alt="iPhone 16 Plus" class="w-full h-48 object-cover">
+          <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">💰 Value</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs text-gray-400 font-semibold"><i class="fab fa-apple"></i> Apple</span>
+              <h3 class="font-bold text-accent text-lg mt-0.5">iPhone 16 Plus</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">In Stock</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="price-tag text-white px-3 py-1.5 rounded-lg text-sm font-bold">₨ 309,999</span>
+            <span class="text-xs text-gray-400 line-through">₨ 339,999</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1 text-xs text-gray-500">
+            <span class="bg-soft px-2 py-0.5 rounded">6GB RAM</span>
+            <span class="bg-soft px-2 py-0.5 rounded">128GB</span>
+            <span class="bg-soft px-2 py-0.5 rounded">6.7" OLED</span>
+          </div>
+          <button class="w-full mt-4 bg-accent hover:bg-accent-light text-white py-2 rounded-xl transition text-sm font-medium">
+            <i class="fas fa-shopping-cart mr-2"></i> View Deal
+          </button>
+        </div>
+      </div>
+
+      <!-- Samsung Galaxy S24+ -->
+      <div class="phone-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="samsung">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1610945264803-c22e62d2a7f3?w=400&h=300&fit=crop&crop=center" alt="Samsung S24+" class="w-full h-48 object-cover">
+          <span class="absolute top-3 left-3 bg-accent/80 text-white text-xs px-3 py-1 rounded-full font-medium">⭐ Popular</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs text-gray-400 font-semibold"><i class="fab fa-samsung"></i> Samsung</span>
+              <h3 class="font-bold text-accent text-lg mt-0.5">Galaxy S24+</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">In Stock</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="price-tag text-white px-3 py-1.5 rounded-lg text-sm font-bold">₨ 284,999</span>
+            <span class="text-xs text-gray-400 line-through">₨ 319,999</span>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-1 text-xs text-gray-500">
+            <span class="bg-soft px-2 py-0.5 rounded">8GB RAM</span>
+            <span class="bg-soft px-2 py-0.5 rounded">256GB</span>
+            <span class="bg-soft px-2 py-0.5 rounded">6.7" Dynamic</span>
+          </div>
+          <button class="w-full mt-4 bg-accent hover:bg-accent-light text-white py-2 rounded-xl transition text-sm font-medium">
+            <i class="fas fa-shopping-cart mr-2"></i> View Deal
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Additional Info -->
+    <div class="mt-12 bg-white rounded-3xl shadow-sm border border-soft p-6 md:p-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h4 class="font-semibold text-accent flex items-center gap-2">
+            <i class="fas fa-info-circle text-accent/60"></i> Price Information
+          </h4>
+          <p class="text-sm text-gray-500 mt-1">Prices are in Pakistani Rupees (PKR) and may vary by retailer. All prices include applicable taxes.</p>
+        </div>
+        <div class="flex gap-3 text-sm">
+          <span class="bg-soft px-4 py-2 rounded-full text-gray-600"><i class="fas fa-tag mr-1"></i> 12 models</span>
+          <span class="bg-soft px-4 py-2 rounded-full text-gray-600"><i class="fas fa-store mr-1"></i> 8 brands</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-8 text-center">
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-accent transition">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white border-t border-soft mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-copyright text-xs"></i><span>2026 Sallar Groups of Company · Mobile Price List</span>
+      </div>
+      <div class="flex gap-6 mt-3 md:mt-0">
+        <a href="#" class="hover:text-accent transition">Privacy</a>
+        <a href="#" class="hover:text-accent transition">Terms</a>
+        <a href="index.html" class="hover:text-accent transition flex items-center gap-1">
+          <i class="fas fa-home text-xs"></i> Home
+        </a>
+        <a href="#" class="hover:text-accent transition"><i class="fas fa-chevron-up"></i> Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for brand filtering -->
+  <script>
+    (function() {
+      // Mobile menu toggle
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+      }
+
+      // Brand filter functionality
+      const brandButtons = document.querySelectorAll('.brand-badge');
+      const phoneCards = document.querySelectorAll('.phone-card');
+
+      brandButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          brandButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-accent', 'text-white');
+            btn.classList.add('bg-white', 'text-gray-700');
+          });
+          
+          // Add active class to clicked button
+          this.classList.add('active', 'bg-accent', 'text-white');
+          this.classList.remove('bg-white', 'text-gray-700');
+
+          const brand = this.dataset.brand;
+
+          // Filter phone cards
+          phoneCards.forEach(card => {
+            if (brand === 'all' || card.dataset.brand === brand) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
