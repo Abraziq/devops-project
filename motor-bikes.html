@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sallar Groups · Latest Motor Bikes & Prices PKR</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .bg-soft { background-color: #f8fafc; }
+    .border-soft { border-color: #e9edf2; }
+    .text-accent { color: #1e3a5f; }
+    .bg-accent { background-color: #1e3a5f; }
+    .bg-accent-light { background-color: #2b4b72; }
+    .bike-card {
+      transition: all 0.3s ease;
+    }
+    .bike-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+    }
+    .brand-badge {
+      transition: all 0.2s ease;
+    }
+    .brand-badge:hover {
+      transform: scale(1.05);
+    }
+    .brand-badge.active {
+      background-color: #1e3a5f;
+      color: white;
+    }
+    .price-tag {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2b4b72 100%);
+    }
+  </style>
+</head>
+<body class="bg-soft font-sans antialiased text-gray-700">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white shadow-sm border-b border-soft sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4 md:py-5">
+        <!-- brand -->
+        <a href="index.html" class="flex items-center space-x-2 hover:opacity-80 transition">
+          <i class="fas fa-building text-2xl text-accent"></i>
+          <span class="text-xl font-bold tracking-tight text-accent">Sallar<span class="font-light">Groups</span></span>
+          <span class="hidden sm:inline-block text-xs font-medium bg-accent/10 text-accent px-2 py-0.5 rounded-full ml-1">bikes</span>
+        </a>
+        <!-- nav links (desktop) -->
+        <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <a href="index.html" class="text-gray-600 hover:text-accent transition">Home</a>
+          <a href="index.html#about" class="text-gray-600 hover:text-accent transition">About</a>
+          <a href="index.html#gallery" class="text-gray-600 hover:text-accent transition">Gallery</a>
+          <a href="index.html#contact" class="text-gray-600 hover:text-accent transition">Contact</a>
+          <a href="analytics.html" class="text-gray-600 hover:text-accent transition flex items-center gap-1">
+            <i class="fas fa-chart-line text-xs"></i> Analytics
+          </a>
+          <a href="login.html" class="text-gray-600 hover:text-accent transition flex items-center gap-1">
+            <i class="fas fa-sign-in-alt text-xs"></i> Login
+          </a>
+          <a href="mobile-phones.html" class="text-gray-600 hover:text-accent transition flex items-center gap-1">
+            <i class="fas fa-mobile-alt text-xs"></i> Phones
+          </a>
+          <a href="#" class="text-accent font-semibold border-b-2 border-accent pb-0.5 flex items-center gap-1">
+            <i class="fas fa-motorcycle text-xs"></i> Bikes
+          </a>
+        </nav>
+        <!-- mobile toggle -->
+        <div class="md:hidden">
+          <button id="menuToggle" class="text-gray-600 hover:text-accent focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        <!-- CTA -->
+        <div class="hidden md:block">
+          <a href="index.html#contact" class="bg-accent hover:bg-accent-light text-white px-5 py-2 rounded-full text-sm font-medium shadow-sm transition">Get in touch</a>
+        </div>
+      </div>
+      <!-- mobile nav -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4 border-t border-soft pt-3 space-y-2 text-sm font-medium">
+        <a href="index.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Home</a>
+        <a href="index.html#about" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">About</a>
+        <a href="index.html#gallery" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Gallery</a>
+        <a href="index.html#contact" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700">Contact</a>
+        <a href="analytics.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700 flex items-center gap-2">
+          <i class="fas fa-chart-line"></i> Analytics
+        </a>
+        <a href="login.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700 flex items-center gap-2">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <a href="mobile-phones.html" class="block px-2 py-1.5 rounded hover:bg-gray-100 text-gray-700 flex items-center gap-2">
+          <i class="fas fa-mobile-alt"></i> Phones
+        </a>
+        <a href="#" class="block px-2 py-1.5 rounded bg-accent/10 text-accent font-medium flex items-center gap-2">
+          <i class="fas fa-motorcycle"></i> Bikes
+        </a>
+        <a href="index.html#contact" class="block mt-2 bg-accent text-white text-center px-4 py-2 rounded-full">Contact us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- Page Header -->
+    <div class="mb-10">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <span class="text-accent/70 text-sm font-semibold uppercase tracking-widest"><i class="fas fa-motorcycle mr-2"></i>Motor Bikes</span>
+          <h1 class="text-3xl md:text-4xl font-bold text-accent mt-1">Latest Bikes & <span class="text-blue-600">Prices in PKR</span></h1>
+          <p class="text-gray-500 max-w-xl mt-1 text-sm">Updated prices for Honda, Yamaha, Suzuki, United, and more.</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs bg-white px-4 py-2 rounded-full shadow-sm border border-soft">
+          <i class="fas fa-clock text-accent/60"></i>
+          <span class="text-gray-500">Last updated: <span class="font-medium text-gray-700">Sept 2026</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Filter -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button class="brand-badge active px-4 py-2 rounded-full text-sm font-medium bg-accent text-white shadow-sm transition" data-brand="all">
+        <i class="fas fa-motorcycle mr-1"></i> All
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="honda">
+        <i class="fas fa-motorcycle mr-1"></i> Honda
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="yamaha">
+        <i class="fas fa-motorcycle mr-1"></i> Yamaha
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="suzuki">
+        <i class="fas fa-motorcycle mr-1"></i> Suzuki
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="united">
+        <i class="fas fa-motorcycle mr-1"></i> United
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="roadprince">
+        <i class="fas fa-motorcycle mr-1"></i> Road Prince
+      </button>
+      <button class="brand-badge px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 border border-soft hover:bg-gray-50 transition" data-brand="superpower">
+        <i class="fas fa-motorcycle mr-1"></i> Super Power
+      </button>
+    </div>
+
+    <!-- Bike Grid -->
+    <div id="bikeGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      <!-- Honda CG 125 -->
+      <div class="bike-card bg-white rounded-2xl shadow-sm border border-soft overflow-hidden" data-brand="honda">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=300&fit=crop&crop=center" alt="Honda CG 125" class="w-full h-48 object-cover">

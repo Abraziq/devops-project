@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    // This listens for your GitHub Webhook trigger
+    triggers {
+        githubPush()
+    }
+
+    stages {
+        // Stage 1: Pull the latest code from your GitHub repository
+        stage('1. Pull Code') {
+            steps {
+                echo '📥 Webhook triggered! Pulling the latest code from GitHub...'
+                // CHANGE THIS: Put your actual GitHub URL and branch name here
+                git branch: 'main', url: 'https://github.com/Abraziq/devops-project.git'
+            }
+        }
+
+        // Stage 2: Test your code
+        stage('2. Test Code') {
+            steps {
+                echo '🧪 Running code tests...'
+                // CHANGE THIS: Replace with your actual test command (e.g., sh 'npm test' or sh 'pytest')
+                sh 'echo "All tests passed successfully!"'
+            }
+        }
+
+        // Stage 3: Copy the code files to the web server directory
+        stage('3. Deploy to /var/www/html') {
+            steps {
+                echo '🚀 Copying code files to /var/www/html...'
+                // This copies all files from the Jenkins workspace to the web directory
+                // Note: The Jenkins user needs sudo permissions or write access to /var/www/html
+                sh 'cp -R * /var/www/html/'
+            }
+        }
+
+        // Stage 4: Show a successful completion message
+        stage('4. Success Message') {
+            steps {
+                echo '✅ Deployment finished successfully!'
+                echo '🌐 Your website is updated and live at /var/www/html'
+            }
+        }
+    }
+
+    // This section automatically runs extra notifications at the very end
+    post {
+        success {
+            echo '🎉 Congratulations! The entire pipeline finished without any errors.'
+        }
+        failure {
+            echo '❌ Oops! Something failed during the pipeline execution. Check the logs above.'
+        }
+    }
+}
